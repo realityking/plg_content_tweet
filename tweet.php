@@ -61,6 +61,7 @@ class plgContentTweet extends JPlugin
 		static $loaded = false;
 		
 		$doc = JFactory::getDocument();
+		$lang = JFactory::getLanguage()->get();
 		JHtml::_('behavior.framework');
 		
 		if (!$loaded) {
