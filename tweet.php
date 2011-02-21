@@ -58,10 +58,13 @@ class plgContentTweet extends JPlugin
 	
 	public static function renderButton($loadcss, $item)
 	{
+		static $loaded = false;
+		
 		$doc = JFactory::getDocument();
 		JHtml::_('behavior.framework');
 		
-		$doc->addScriptDeclaration('
+		if (!$loaded) {
+			$doc->addScriptDeclaration('
 			window.addEvent("domready", function() {
 				var twbts = $$(".tweet-button > a");
 				twbts.each(function(item) {
@@ -80,8 +83,10 @@ class plgContentTweet extends JPlugin
 				})
 			});');
 
-		if ($loadcss) {
-			$doc->addStyleSheet(JURI::base().'media/plg_content_tweet/css/tweet.css');
+			if ($loadcss) {
+				$doc->addStyleSheet(JURI::base().'media/plg_content_tweet/css/tweet.css');
+			}
+			$loaded = true;
 		}
 
 		$uri = JURI::root().substr(JRoute::_(ContentHelperRoute::getArticleRoute($item->slug, $item->catid)), 1);
@@ -89,8 +94,8 @@ class plgContentTweet extends JPlugin
 
 		$html = '';
 		$attribs = 'toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=450,height=550';
-		$html .= '<div class="tweet-button"><a rel="nofollow" onklick="window.open(this.href, \'targetWindow\', \''.$attribs.'\'); return false;" href="http://twitter.com/share?url=';
-		$html .= htmlspecialchars(urlencode($uri).$urisuffix);
+		$html .= '<div class="tweet-button"><a rel="nofollow" href="http://twitter.com/share?url=';
+		$html .= htmlspecialchars(urlencode($uri.$urisuffix));
 		$html .= '" target="_blank" title="'.JText::sprintf('PLG_CONTENT_TWEET_SHARE_ON_TWITTER', $uri).'">'.JText::_('PLG_CONTENT_TWEET_TWEET').'</a></div>';
 
 		return $html;

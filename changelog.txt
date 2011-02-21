@@ -1,0 +1,10 @@
+== Version 1.2 [11 February 2010] ==
+*Removed needless markup/script from the output
+*Fixed English spelling
+*Added German translation
+
+== Version 1.1 [25 January 2010] ==
+*Fixed a bug that broke the layout of the backend Media Manger and potentially other extensions
+
+== Version 1.0 [24 January 2010] ==
+*Initial release
