@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="1.6" type="plugin" group="content" method="upgrade">
+	<name>plg_content_tweet</name>
+	<author>Rouven Weßling</author>
+	<creationDate>24 Janaury 2011</creationDate>
+	<copyright>Copyright (C) 2011 Rouven Weßling. All rights reserved.</copyright>
+	<license>GNU General Public License version 2 or later; see license.txt. Images courtesy of Twitter Inc., these are not covered by the GPL.</license>
+	<authorEmail>me@rouvenwessling.de</authorEmail>
+	<authorUrl>www.rouvenwessling.de</authorUrl>
+	<version>1.0</version>
+	<description>PLG_CONTENT_TWEET_XML_DESCRIPTION</description>
+
+	<files>
+		<filename plugin="tweet">tweet.php</filename>
+		<filename>index.html</filename>
+	</files>
+
+	<languages>
+		<language tag="en-GB">language/en-GB.plg_content_tweet.ini</language>
+		<language tag="en-GB">language/en-GB.plg_content_tweet.sys.ini</language>
+		<language tag="de-DE">language/de-DE.plg_content_tweet.sys.ini</language>
+	</languages>
+
+	<media destination="plg_content_tweet">
+		<folder>css</folder>
+		<folder>images</folder>
+	</media>
+	
+	<config>
+    	<fields name="params">
+    		<fieldset name="basic">
+    			<field name="loadcss" type="radio"
+					default="0"
+					description="PLG_CONTENT_TWEET_LOAD_CSS_DESC"
+					label="PLG_CONTENT_TWEET_LOAD_CSS_LABEL">
+						<option value="0">JYes</option>
+						<option value="1">JNo</option>
+				</field>
+				<field name="position" type="radio"
+					default="0"
+					description="PLG_CONTENT_TWEET_POSITION_DESC"
+					label="PLG_CONTENT_TWEET_POSITION_LABL">
+						<option value="0">PLG_CONTENT_TWEET_BEFORE</option>
+						<option value="1">PLG_CONTENT_TWEET_AFTER</option>
+				</field>
+    		</fieldset>
+    	</fields>
+    </config>
+</extension>
