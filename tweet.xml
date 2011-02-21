@@ -2,12 +2,12 @@
 <extension version="1.6" type="plugin" group="content" method="upgrade">
 	<name>plg_content_tweet</name>
 	<author>Rouven Weßling</author>
-	<creationDate>24 Janaury 2011</creationDate>
+	<creationDate>25 Janaury 2011</creationDate>
 	<copyright>Copyright (C) 2011 Rouven Weßling. All rights reserved.</copyright>
 	<license>GNU General Public License version 2 or later; see license.txt. Images courtesy of Twitter Inc., these are not covered by the GPL.</license>
 	<authorEmail>me@rouvenwessling.de</authorEmail>
 	<authorUrl>www.rouvenwessling.de</authorUrl>
-	<version>1.0</version>
+	<version>1.1</version>
 	<description>PLG_CONTENT_TWEET_XML_DESCRIPTION</description>
 
 	<files>
@@ -36,6 +36,7 @@
 						<option value="0">JYes</option>
 						<option value="1">JNo</option>
 				</field>
+
 				<field name="position" type="radio"
 					default="0"
 					description="PLG_CONTENT_TWEET_POSITION_DESC"

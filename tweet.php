@@ -32,7 +32,7 @@ class plgContentTweet extends JPlugin
 
 	public function onContentBeforeDisplay($context, &$row, &$params, $page=0)
 	{
-		if ($this->params->def('position', 0) == 0) {
+		if ($this->params->def('position', 0) == 0 && $context == 'com_content.article') {
 			if ($this->params->def('loadcss', 0) == 0) {
 				$loadcss = true;
 			} else {
@@ -45,7 +45,7 @@ class plgContentTweet extends JPlugin
 	
 	public function onContentAfterDisplay($context, &$row, &$params, $page=0)
 	{
-		if ($this->params->def('position', 0) == 1) {
+		if ($this->params->def('position', 0) == 1 && $context == 'com_content.article') {
 			if ($this->params->def('loadcss', 0) == 0) {
 				$loadcss = true;
 			} else {
