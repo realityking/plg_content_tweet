@@ -61,9 +61,11 @@ class plgContentTweet extends JPlugin
 		static $loaded = false;
 		
 		$doc = JFactory::getDocument();
-		$lang = JFactory::getLanguage()->get();
+		$lang = JFactory::getLanguage();
+		$tag = explode('-', $lang->getTag());
+		$tag = $tag[0];
 		JHtml::_('behavior.framework');
-		
+
 		if (!$loaded) {
 			$doc->addScriptDeclaration('
 			window.addEvent("domready", function() {
@@ -92,6 +94,9 @@ class plgContentTweet extends JPlugin
 
 		$uri = JURI::root().substr(JRoute::_(ContentHelperRoute::getArticleRoute($item->slug, $item->catid)), 1);
 		$urisuffix = "&amp;text=".htmlspecialchars(urlencode($item->title));
+		if (in_array($tag, array('de', 'es', 'fr', 'ja', 'ko'))) {
+			$urisuffix .= "&amp;lang=".$tag;
+		}
 
 		$html = '';
 		$attribs = 'toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=450,height=550';
