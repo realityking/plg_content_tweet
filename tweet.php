@@ -90,12 +90,12 @@ class plgContentTweet extends JPlugin
 		}
 
 		$uri = JURI::root().substr(JRoute::_(ContentHelperRoute::getArticleRoute($item->slug, $item->catid)), 1);
-		$urisuffix = "&text=".$item->title;
+		$urisuffix = "&amp;text=".htmlspecialchars(urlencode($item->title));
 
 		$html = '';
 		$attribs = 'toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=450,height=550';
 		$html .= '<div class="tweet-button"><a rel="nofollow" href="http://twitter.com/share?url=';
-		$html .= htmlspecialchars(urlencode($uri.$urisuffix));
+		$html .= htmlspecialchars(urlencode($uri)).$urisuffix;
 		$html .= '" target="_blank" title="'.JText::sprintf('PLG_CONTENT_TWEET_SHARE_ON_TWITTER', $uri).'">'.JText::_('PLG_CONTENT_TWEET_TWEET').'</a></div>';
 
 		return $html;
