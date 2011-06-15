@@ -67,7 +67,7 @@ class plgContentTweet extends JPlugin
 		JHtml::_('behavior.framework');
 
 		if (!$loaded) {
-			$doc->addScriptDeclaration('
+			$script = '
 			window.addEvent("domready", function() {
 				var twbts = $$(".tweet-button > a");
 				twbts.each(function(item) {
@@ -84,7 +84,9 @@ class plgContentTweet extends JPlugin
 						window.open(this.href, "twitter_tweet", "status=0,toolbar=0,location=0,menubar=0,directories=0,resizable=0,scrollbars=0,width="+w+",height="+h+",left="+left+",top="+top);
 					});
 				})
-			});');
+			});';
+
+			$doc->addScriptDeclaration($script);
 
 			if ($loadcss) {
 				$doc->addStyleSheet(JURI::base().'media/plg_content_tweet/css/tweet.css');
@@ -94,7 +96,7 @@ class plgContentTweet extends JPlugin
 
 		$uri = JURI::root().substr(JRoute::_(ContentHelperRoute::getArticleRoute($item->slug, $item->catid)), 1);
 		$urisuffix = "&amp;text=".htmlspecialchars(urlencode($item->title));
-		if (in_array($tag, array('de', 'es', 'fr', 'ja', 'ko'))) {
+		if (in_array($tag, array('de', 'es', 'fr', 'it', 'ja', 'ko'))) {
 			$urisuffix .= "&amp;lang=".$tag;
 		}
 
