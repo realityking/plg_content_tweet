@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<extension version="1.6" type="plugin" group="content" method="upgrade">
+<extension version="2.5" type="plugin" group="content" method="upgrade">
 	<name>plg_content_tweet</name>
 	<author>Rouven Weßling</author>
 	<creationDate>21 February 2011</creationDate>
